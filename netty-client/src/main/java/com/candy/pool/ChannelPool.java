@@ -29,7 +29,11 @@ public class ChannelPool {
     }
 
     public static void clear() {
-        poolChannel.values().forEach(ChannelOutboundInvoker::close);
+        poolChannel.values().forEach(channel -> {
+            if (Objects.nonNull(channel)) {
+                channel.close();
+            }
+        });
         poolChannel.clear();
     }
 }

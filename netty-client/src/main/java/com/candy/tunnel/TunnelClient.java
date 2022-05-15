@@ -64,6 +64,8 @@ public class TunnelClient {
             if (channelFuture.channel().isOpen()) {
                 channel = channelFuture.channel();
                 log.info("重连成功..........");
+                //重置浏览器socket
+                ChannelPool.clear();
             }
         } catch (Exception e) {
             log.error("连接远程失败 :{}", e.getMessage());

@@ -24,7 +24,7 @@ public class NettyClientApplication {
         NioEventLoopGroup boss = new NioEventLoopGroup();
         //获取连接通道 proxy.candy-wind.com
         try {
-            TunnelClient.connect("127.0.0.1", 444, boss);
+            TunnelClient.connect("proxy.candy-wind.com", 443, boss);
             HttpServerForPac httpServerForPac = new HttpServerForPac(boss);
             httpServerForPac.start();
             ServerBootstrap bootstrap = new ServerBootstrap()
